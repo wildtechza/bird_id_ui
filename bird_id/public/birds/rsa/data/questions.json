@@ -1,0 +1,36 @@
+{
+    "questions": [
+        {
+            "image": "/birds/rsa/images/123_rock_kestrel.jpg",
+            "answer": 123
+        },
+        {
+            "image": "/birds/rsa/images/133_verreauxs_eagle.jpg",
+            "answer": 133
+        },
+        {
+            "image": "/birds/rsa/images/220_karoo_korhaan.jpg",
+            "answer": 220
+        },
+        {
+            "image": "/birds/rsa/images/391_white-backed_mousebird.jpg",
+            "answer": 391
+        },
+        {
+            "image": "/birds/rsa/images/396_half-collared_kingfisher.jpg",
+            "answer": 396
+        },
+        {
+            "image": "/birds/rsa/images/404_european_bee-eater.jpg",
+            "answer": 404
+        },
+        {
+            "image": "/birds/rsa/images/557_groundscraper_thrush.jpg",
+            "answer": 557
+        },
+        {
+            "image": "/birds/rsa/images/803_southern_masked_weaver.jpg",
+            "answer": 803
+        }
+    ]
+}
