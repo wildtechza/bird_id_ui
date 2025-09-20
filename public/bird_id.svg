@@ -4,8 +4,8 @@
    id="Layer_1"
    x="0px"
    y="0px"
-   width="877.6828"
-   viewBox="0 0 877.68281 421.61389"
+   width="882.50537"
+   viewBox="0 0 882.50538 421.61389"
    enable-background="new 0 0 1536 1024"
    xml:space="preserve"
    sodipodi:docname="bird_id.svg"
@@ -34,9 +34,9 @@
    inkscape:pageopacity="0.0"
    inkscape:pagecheckerboard="0"
    inkscape:deskcolor="#d1d1d1"
-   inkscape:zoom="6.4468249"
-   inkscape:cx="550.42599"
-   inkscape:cy="394.22507"
+   inkscape:zoom="1.1396484"
+   inkscape:cx="360.19881"
+   inkscape:cy="319.83549"
    inkscape:window-width="2560"
    inkscape:window-height="1369"
    inkscape:window-x="-8"
@@ -1131,13 +1131,7 @@
 
 
 
-<rect
-   style="fill:#000000;stroke:#ffffff;stroke-width:5"
-   id="rect1"
-   width="1618.0428"
-   height="912.56213"
-   x="-384.3291"
-   y="-273.76865" /><g
+<g
    id="g1093-7"
    transform="translate(4.9972229,2.4982165)"
    style="fill:#ffffff;stroke:#ffffff;stroke-width:5;stroke-dasharray:none;stroke-opacity:1"><path
@@ -5579,24 +5573,24 @@
 <text
    xml:space="preserve"
    id="text1092-4"
-   style="font-size:192px;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1092-0);display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:7;stroke-dasharray:none;stroke-opacity:1"
+   style="font-size:192px;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1092-0);display:inline;fill:#ffffff;stroke:#ffffff;stroke-width:12;stroke-dasharray:none;stroke-opacity:1"
    transform="translate(-530.93018,-203.46015)"><tspan
      x="811.6543"
      y="493.21557"
-     id="tspan6"><tspan
+     id="tspan2"><tspan
        style="font-weight:bold;font-family:Arial;-inkscape-font-specification:'Arial Bold'"
-       id="tspan5">Bird Id</tspan></tspan></text><text
+       id="tspan1">Bird Id</tspan></tspan></text><text
    xml:space="preserve"
    id="text1092"
    style="font-size:192px;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1092);display:inline;fill:#000000;stroke:none;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
    transform="translate(-529.87527,-202.90431)"><tspan
      x="811.6543"
      y="493.21557"
-     id="tspan8"><tspan
+     id="tspan4"><tspan
        style="font-weight:bold;font-family:Arial;-inkscape-font-specification:'Arial Bold'"
-       id="tspan7">Bird Id</tspan></tspan></text><text
+       id="tspan3">Bird Id</tspan></tspan></text><text
    xml:space="preserve"
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.6667px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke:#ffffff;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.6667px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke:#ffffff;stroke-width:5;stroke-dasharray:none;stroke-opacity:1"
    x="406.61472"
    y="367.03726"
    id="text1093-8"><tspan
@@ -5604,7 +5598,7 @@
      id="tspan1093-2"
      x="406.61472"
      y="367.03726"
-     style="font-size:42.6667px;fill:#ffffff;stroke:#ffffff;stroke-width:3;stroke-dasharray:none;stroke-opacity:1">South Africa</tspan></text><text
+     style="font-size:42.6667px;fill:#ffffff;stroke:#ffffff;stroke-width:5;stroke-dasharray:none;stroke-opacity:1">South Africa</tspan></text><text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.6667px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:none;stroke-opacity:1"
    x="405.96622"
