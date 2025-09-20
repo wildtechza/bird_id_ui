@@ -3,7 +3,7 @@ name: Deploy Next.js static to Cloudflare Pages
 on:
   push:
     branches:
-      - main  # or whatever your dev branch is
+      - main  # your main branch
 
 jobs:
   build-and-deploy:
@@ -22,10 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Next.js (static export)
-        run: |
-          npm run build
-          npm run export
+      - name: Build Next.js (static output)
+        run: npm run build
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
