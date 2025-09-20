@@ -111,7 +111,8 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
           className="w-full px-3 py-2 border rounded"
         />
         {suggestions.length > 0 && (
-          <ul className="w-full absolute left-0 bg-white border rounded shadow z-10 mt-1 max-h-40 overflow-y-auto">
+          <ul className="w-full absolute left-0 border rounded shadow z-10 mt-1 max-h-40 overflow-y-auto 
+               bg-white dark:bg-gray-800">
             {suggestions.map(bird => (
               <li
                 key={bird.fullName}
