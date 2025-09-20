@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Bird Id",
   description: "Test your bird identification skills!",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" }
+  ]
 };
 
 export default function RootLayout({
@@ -24,12 +27,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta 
-          name="theme-color" 
-          content="#ffffff"
-          media="(prefers-color-scheme: light)" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
