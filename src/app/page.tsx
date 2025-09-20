@@ -10,6 +10,7 @@ export default function Home() {
   const [birds, setBirds] = useState<Bird[]>([]);
   const [askedQuestions, setAskedQuestions] = useState<Question[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   const correctBird =
     currentQuestion && birds.find(
@@ -27,6 +28,10 @@ export default function Home() {
     }
     loadData();
   }, []);
+
+  useEffect(() => {
+    setShowAnswer(false);
+  }, [currentQuestion]);
 
   function askRandomQuestion() {
     if (questions.length === 0) {
@@ -71,23 +76,36 @@ export default function Home() {
           className="dark:invert"
           src="/bird_id.svg"
           alt="Bird Id"
-          width={180}
+          width={400}
           height={180}
           priority
         />
       </header>
       <main className="flex flex-col gap-8 items-center">
         {showBegin && (
-          <div className="text-xl font-semibold mb-2">
-            {questions.length} birds to identify!
+          <div className="flex flex-col items-center text-xl font-semibold mb-2">
+            <Image
+              className="dark:invert mb-4"
+              src="/binoculars.svg"
+              alt="Bird Id"
+              width={400}
+              height={180}
+              priority
+            />
+            <span>{questions.length} birds to identify!</span>
           </div>
         )}
         {currentQuestion && <QuestionDisplay question={currentQuestion} birds={birds} />}
+        {showAnswer && (
+          <div className="mt-2 text-lg font-semibold text-blue-700">
+            Answer: {correctBird?.fullName || currentQuestion.answer}
+          </div>
+        )}
         <div className="flex gap-4">
           {currentQuestion && (
             <button
               className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
-              onClick={() => alert(`${correctBird?.fullName || currentQuestion.answer}`)}
+              onClick={() => setShowAnswer(true)}
             >
               View Answer
             </button>
@@ -139,8 +157,10 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
   const [suggestions, setSuggestions] = useState<Bird[]>([]);
   const [result, setResult] = useState<"correct" | "incorrect" | null>(null);
   const [feedbackMsg, setFeedbackMsg] = useState("");
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
+    setImageLoaded(false);
     setInput("");
     setSuggestions([]);
     setResult(null);
@@ -181,12 +201,28 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
 
   return (
     <div className="mb-4 flex flex-col items-center">
-      <Image
+      {!imageLoaded && (
+        <Image
+          src="/loading.svg"
+          alt="Loading..."
+          width={400}
+          height={300}
+          style={{ height: "auto", width: "100%", maxWidth: "400px" }}
+          className="animate-pulse"
+        />
+      )}
+      <img
         src={question.image}
         alt={`Question`}
         width={400}
         height={300}
-        style={{ height: "auto", width: "100%", maxWidth: "400px" }}
+        style={{
+          height: "auto",
+          width: "100%",
+          maxWidth: "400px",
+          display: imageLoaded ? "block" : "none",
+        }}
+        onLoad={() => setImageLoaded(true)}
       />
       <div className="mt-4 w-full relative" style={{ maxWidth: 400 }}>
         <input
@@ -210,12 +246,12 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
           </ul>
         )}
         {result === "correct" && (
-          <div className="flex items-center mt-2 text-green-600 font-semibold">
+          <div className="flex flex-col items-center mt-2 text-green-600 font-semibold">
             <span className="mr-2">✔️</span> {feedbackMsg}
           </div>
         )}
         {result === "incorrect" && (
-          <div className="flex items-center mt-2 text-red-600 font-semibold">
+          <div className="flex flex-col items-center mt-2 text-red-600 font-semibold">
             <span className="mr-2">❌</span> {feedbackMsg}
           </div>
         )}
