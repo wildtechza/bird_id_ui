@@ -1,0 +1,139 @@
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Question } from "../models/Question";
+import { Bird } from "../models/Bird";
+
+const CORRECT_MESSAGES = [
+  "Eggcellent! 🥚",
+  "Tweet-tastic! 🐦",
+  "Flaptastic! 🪽",
+  "Peck-perfection! 🍽️",
+  "Owl you need is this correct! 🦉",
+  "Flock yeah! 🐥",
+  "Beak-ause you’re right! 🐤",
+  "Wing it to win it! 🪽",
+  "Perch-fect! 🪶",
+];
+
+const INCORRECT_MESSAGES = [
+  "Fowl play! 🐓",
+  "Not your peck! 🐦",
+  "Eggstra wrong! 🥚",
+  "Feather not! 🪶",
+  "Bird-ened with mistakes! 🐥",
+  "Owl be honest… wrong. 🦉",
+  "Cluck up! 🐔",
+  "You’ve flown off track! 🕊️",
+  "Nest so good… try again! 🪹",
+];
+
+export interface QuestionDisplayProps {
+  question: Question;
+  birds: Bird[];
+}
+
+export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
+  const [input, setInput] = useState("");
+  const [suggestions, setSuggestions] = useState<Bird[]>([]);
+  const [result, setResult] = useState<"correct" | "incorrect" | null>(null);
+  const [feedbackMsg, setFeedbackMsg] = useState("");
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    setImageLoaded(false);
+    setInput("");
+    setSuggestions([]);
+    setResult(null);
+    setFeedbackMsg("");
+  }, [question]);
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value;
+    setInput(value);
+    if (value.length === 0) {
+      setSuggestions([]);
+    } else {
+      setSuggestions(
+        birds.filter(bird =>
+          bird.fullName.toLowerCase().includes(value.toLowerCase())
+        )
+      );
+    }
+    setResult(null);
+    setFeedbackMsg("");
+  }
+
+  function handleSelect(bird: Bird) {
+    setInput(bird.fullName);
+    setSuggestions([]);
+    if (String(bird.sabap2) === String(question.answer)) {
+      setResult("correct");
+      const msg = CORRECT_MESSAGES[Math.floor(Math.random() * CORRECT_MESSAGES.length)];
+      setFeedbackMsg(msg);
+    } else {
+      setResult("incorrect");
+      const msg = INCORRECT_MESSAGES[Math.floor(Math.random() * INCORRECT_MESSAGES.length)];
+      setFeedbackMsg(msg);
+    }
+  }
+
+  return (
+    <div className="mb-4 flex flex-col items-center">
+      {!imageLoaded && (
+        <Image
+          src="/loading.svg"
+          alt="Loading..."
+          width={400}
+          height={300}
+          style={{ height: "auto", width: "100%", maxWidth: "400px" }}
+          className="animate-pulse"
+        />
+      )}
+      <img
+        src={question.image}
+        alt={`Question`}
+        width={400}
+        height={300}
+        style={{
+          height: "auto",
+          width: "100%",
+          maxWidth: "400px",
+          display: imageLoaded ? "block" : "none",
+        }}
+        onLoad={() => setImageLoaded(true)}
+      />
+      <div className="mt-4 w-full relative" style={{ maxWidth: 400 }}>
+        <input
+          type="text"
+          value={input}
+          onChange={handleChange}
+          placeholder="Type bird name..."
+          className="w-full px-3 py-2 border rounded"
+        />
+        {suggestions.length > 0 && (
+          <ul className="w-full absolute left-0 bg-white border rounded shadow z-10 mt-1 max-h-40 overflow-y-auto">
+            {suggestions.map(bird => (
+              <li
+                key={bird.fullName}
+                className="px-3 py-2 cursor-pointer hover:bg-blue-100"
+                onClick={() => handleSelect(bird)}
+              >
+                {bird.fullName}
+              </li>
+            ))}
+          </ul>
+        )}
+        {result === "correct" && (
+          <div className="flex flex-col items-center mt-2 text-green-600 font-semibold">
+            <span className="mr-2">✔️</span> {feedbackMsg}
+          </div>
+        )}
+        {result === "incorrect" && (
+          <div className="flex flex-col items-center mt-2 text-red-600 font-semibold">
+            <span className="mr-2">❌</span> {feedbackMsg}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
