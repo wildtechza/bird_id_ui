@@ -11,6 +11,11 @@ export default function Home() {
   const [askedQuestions, setAskedQuestions] = useState<Question[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
 
+  const correctBird =
+    currentQuestion && birds.find(
+      bird => String(bird.sabap2) === String(currentQuestion.answer)
+    );
+
   useEffect(() => {
     async function loadData() {
       const questionsRes = await fetch("/birds/rsa/data/questions.json");
@@ -78,12 +83,22 @@ export default function Home() {
           </div>
         )}
         {currentQuestion && <QuestionDisplay question={currentQuestion} birds={birds} />}
-        <button
-          className={`px-4 py-2 text-white rounded ${buttonColor}`}
-          onClick={buttonAction}
-        >
-          {buttonText}
-        </button>
+        <div className="flex gap-4">
+          {currentQuestion && (
+            <button
+              className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
+              onClick={() => alert(`${correctBird?.fullName || currentQuestion.answer}`)}
+            >
+              View Answer
+            </button>
+          )}
+          <button
+            className={`px-4 py-2 text-white rounded ${buttonColor}`}
+            onClick={buttonAction}
+          >
+            {buttonText}
+          </button>
+        </div>
       </main>
       <footer className="flex gap-[24px] flex-wrap items-center justify-center"></footer>
     </div>
@@ -95,16 +110,41 @@ interface QuestionDisplayProps {
   birds: Bird[];
 }
 
+const CORRECT_MESSAGES = [
+  "Eggcellent! 🥚",
+  "Tweet-tastic! 🐦",
+  "Flaptastic! 🪽",
+  "Peck-perfection! 🍽️",
+  "Owl you need is this correct! 🦉",
+  "Flock yeah! 🐥",
+  "Beak-ause you’re right! 🐤",
+  "Wing it to win it! 🪽",
+  "Perch-fect! 🪶",
+];
+
+const INCORRECT_MESSAGES = [
+  "Fowl play! 🐓",
+  "Not your peck! 🐦",
+  "Eggstra wrong! 🥚",
+  "Feather not! 🪶",
+  "Bird-ened with mistakes! 🐥",
+  "Owl be honest… wrong. 🦉",
+  "Cluck up! 🐔",
+  "You’ve flown off track! 🕊️",
+  "Nest so good… try again! 🪹",
+];
+
 export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState<Bird[]>([]);
   const [result, setResult] = useState<"correct" | "incorrect" | null>(null);
+  const [feedbackMsg, setFeedbackMsg] = useState("");
 
-  // Clear input and result when question changes
   useEffect(() => {
     setInput("");
     setSuggestions([]);
     setResult(null);
+    setFeedbackMsg("");
   }, [question]);
 
   // Filter birds as user types
@@ -120,7 +160,8 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
         )
       );
     }
-    setResult(null); // Reset result when typing
+    setResult(null);
+    setFeedbackMsg("");
   }
 
   function handleSelect(bird: Bird) {
@@ -129,8 +170,12 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
     // Compare sabap2 to question.answer
     if (String(bird.sabap2) === String(question.answer)) {
       setResult("correct");
+      const msg = CORRECT_MESSAGES[Math.floor(Math.random() * CORRECT_MESSAGES.length)];
+      setFeedbackMsg(msg);
     } else {
       setResult("incorrect");
+      const msg = INCORRECT_MESSAGES[Math.floor(Math.random() * INCORRECT_MESSAGES.length)];
+      setFeedbackMsg(msg);
     }
   }
 
@@ -166,12 +211,12 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
         )}
         {result === "correct" && (
           <div className="flex items-center mt-2 text-green-600 font-semibold">
-            <span className="mr-2">✔️</span> Correct
+            <span className="mr-2">✔️</span> {feedbackMsg}
           </div>
         )}
         {result === "incorrect" && (
           <div className="flex items-center mt-2 text-red-600 font-semibold">
-            <span className="mr-2">❌</span> Incorrect
+            <span className="mr-2">❌</span> {feedbackMsg}
           </div>
         )}
       </div>
