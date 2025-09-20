@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Question } from "../models/Question";
+import { Bird } from "../models/Bird";
 
 export default function Home() {
 
-  const [questions, setQuestions] = useState([]);
-  const [birds, setBirds] = useState([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [birds, setBirds] = useState<Bird[]>([]);
 
   useEffect(() => {
     async function loadData() {
@@ -14,10 +16,10 @@ export default function Home() {
       const birdsRes = await fetch("/birds/rsa/data/birds.json");
       const questionsData = await questionsRes.json();
       const birdsData = await birdsRes.json();
-      setQuestions(questionsData.questions || []);
+      setQuestions(questionsData.data || []);
 
       console.log("Loaded birds data:", birdsData);
-      setBirds(birdsData.birds || []);
+      setBirds(birdsData.data || []);
     }
     loadData();
   }, []);
