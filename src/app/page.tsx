@@ -98,7 +98,7 @@ export default function Home() {
         {currentQuestion && <QuestionDisplay question={currentQuestion} birds={birds} />}
         {showAnswer && (
           <div className="mt-2 text-lg font-semibold text-blue-700">
-            Answer: {correctBird?.fullName || currentQuestion.answer}
+            Answer: {correctBird?.fullName || currentQuestion?.answer}
           </div>
         )}
         <div className="flex gap-4">
