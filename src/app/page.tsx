@@ -42,7 +42,7 @@ export default function Home() {
         <div>
           <h2>Questions</h2>
           <ul>
-            {questions.map((q: any, idx: number) => (
+            {questions.map((q: Question, idx: number) => (
               <li key={idx} className="mb-4 flex flex-col items-center">
                 <Image
                   src={q.image}
@@ -60,7 +60,7 @@ export default function Home() {
         <div>
           <h2>Birds</h2>
           <ul>
-            {birds.map((b: any, idx: number) => (
+            {birds.map((b: Bird, idx: number) => (
               <li key={idx}>{b.fullName}</li>
             ))}
           </ul>
