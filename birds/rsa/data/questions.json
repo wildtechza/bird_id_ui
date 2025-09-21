@@ -31,6 +31,226 @@
         {
             "image": "/birds/rsa/images/803_southern_masked_weaver.jpg",
             "answer": 803
+        },
+        {
+            "image": "/birds/rsa/images/1105_olive_thrush.jpg",
+            "answer": 1105
+        },
+        {
+            "image": "/birds/rsa/images/138_long-crested_eagle.jpg",
+            "answer": 138
+        },
+        {
+            "image": "/birds/rsa/images/181_cape_spurfowl.jpg",
+            "answer": 181
+        },
+        {
+            "image": "/birds/rsa/images/1_common_ostrich.jpg",
+            "answer": 1
+        },
+        {
+            "image": "/birds/rsa/images/208_african_purple_swamphen.jpg",
+            "answer": 208
+        },
+        {
+            "image": "/birds/rsa/images/210_common_moorhen.jpg",
+            "answer": 210
+        },
+        {
+            "image": "/birds/rsa/images/231_african_black_oystercatcher.jpg",
+            "answer": 231
+        },
+        {
+            "image": "/birds/rsa/images/235_white-fronted_plover.jpg",
+            "answer": 235
+        },
+        {
+            "image": "/birds/rsa/images/245_blacksmith_lapwing.jpg",
+            "answer": 245
+        },
+        {
+            "image": "/birds/rsa/images/247_african_wattled_lapwing.jpg",
+            "answer": 247
+        },
+        {
+            "image": "/birds/rsa/images/269_pied_avocet.jpg",
+            "answer": 269
+        },
+        {
+            "image": "/birds/rsa/images/270_black-winged_stilt.jpg",
+            "answer": 270
+        },
+        {
+            "image": "/birds/rsa/images/275_spotted_thick-knee.jpg",
+            "answer": 275
+        },
+        {
+            "image": "/birds/rsa/images/2_african_penguin.jpg",
+            "answer": 2
+        },
+        {
+            "image": "/birds/rsa/images/321_emerald-spotted_wood_dove.jpg",
+            "answer": 321
+        },
+        {
+            "image": "/birds/rsa/images/337_purple-crestred_turaco.jpg",
+            "answer": 337
+        },
+        {
+            "image": "/birds/rsa/images/351_klaas_cuckoo.jpg",
+            "answer": 351
+        },
+        {
+            "image": "/birds/rsa/images/390_speckled_mousebird.jpg",
+            "answer": 390
+        },
+        {
+            "image": "/birds/rsa/images/394_pied_kingfisher.jpg",
+            "answer": 394
+        },
+        {
+            "image": "/birds/rsa/images/397_malachite_kingfisher.jpg",
+            "answer": 397
+        },
+        {
+            "image": "/birds/rsa/images/409_white-fronted_bee-eater.jpg",
+            "answer": 409
+        },
+        {
+            "image": "/birds/rsa/images/412_european_roller.jpg",
+            "answer": 412
+        },
+        {
+            "image": "/birds/rsa/images/4131_burchells_coucal.jpg",
+            "answer": 4131
+        },
+        {
+            "image": "/birds/rsa/images/4134_southern_black_korhaan.jpg",
+            "answer": 4134
+        },
+        {
+            "image": "/birds/rsa/images/4139_karoo_prinia.jpg",
+            "answer": 4139
+        },
+        {
+            "image": "/birds/rsa/images/433_white-eared_barbet.jpg",
+            "answer": 433
+        },
+        {
+            "image": "/birds/rsa/images/438_yellow-rumped_tinkerbird.jpg",
+            "answer": 438
+        },
+        {
+            "image": "/birds/rsa/images/439_crested_barbet.jpg",
+            "answer": 439
+        },
+        {
+            "image": "/birds/rsa/images/452_olive_woodpecker.jpg",
+            "answer": 452
+        },
+        {
+            "image": "/birds/rsa/images/463_large-billed_lark.jpg",
+            "answer": 463
+        },
+        {
+            "image": "/birds/rsa/images/47_great_white_breasted_cormorant.jpg",
+            "answer": 47
+        },
+        {
+            "image": "/birds/rsa/images/543_cape_bulbul.jpg",
+            "answer": 543
+        },
+        {
+            "image": "/birds/rsa/images/54_grey_heron.jpg",
+            "answer": 54
+        },
+        {
+            "image": "/birds/rsa/images/566_karoo_chat.jpg",
+            "answer": 566
+        },
+        {
+            "image": "/birds/rsa/images/579_red-capped_robin-chat.jpg",
+            "answer": 579
+        },
+        {
+            "image": "/birds/rsa/images/581_cape_robin-chat.jpg",
+            "answer": 581
+        },
+        {
+            "image": "/birds/rsa/images/59_little_egret.jpg",
+            "answer": 59
+        },
+        {
+            "image": "/birds/rsa/images/619_rufous-eared_warbler.jpg",
+            "answer": 619
+        },
+        {
+            "image": "/birds/rsa/images/64_black_heron.jpg",
+            "answer": 64
+        },
+        {
+            "image": "/birds/rsa/images/655_african_dusky_flycatcher.jpg",
+            "answer": 655
+        },
+        {
+            "image": "/birds/rsa/images/688_mountain_wagtail.jpg",
+            "answer": 688
+        },
+        {
+            "image": "/birds/rsa/images/704_yellow-throated_longclaw.jpg",
+            "answer": 704
+        },
+        {
+            "image": "/birds/rsa/images/722_bokmakierie.jpg",
+            "answer": 722
+        },
+        {
+            "image": "/birds/rsa/images/740_black-bellied_starling.jpg",
+            "answer": 740
+        },
+        {
+            "image": "/birds/rsa/images/760_southern_double-collared_sunbird.jpg",
+            "answer": 760
+        },
+        {
+            "image": "/birds/rsa/images/800_yellow_eastern_goldern_weaver.jpg",
+            "answer": 800
+        },
+        {
+            "image": "/birds/rsa/images/810_yellow_bishop.jpg",
+            "answer": 810
+        },
+        {
+            "image": "/birds/rsa/images/824_red-backed_mannikin.jpg",
+            "answer": 824
+        },
+        {
+            "image": "/birds/rsa/images/825_swee_waxbill.jpg",
+            "answer": 825
+        },
+        {
+            "image": "/birds/rsa/images/83_glossy_ibis.jpg",
+            "answer": 83
+        },
+        {
+            "image": "/birds/rsa/images/84_hadeda_ibis.jpg",
+            "answer": 84
+        },
+        {
+            "image": "/birds/rsa/images/873_cape_bunting.jpg",
+            "answer": 873
+        },
+        {
+            "image": "/birds/rsa/images/90_south_african_shelduck.jpg",
+            "answer": 90
+        },
+        {
+            "image": "/birds/rsa/images/94_cape_shoveler.jpg",
+            "answer": 94
+        },
+        {
+            "image": "/birds/rsa/images/96_yellow-billed_duck.jpg",
+            "answer": 96
         }
     ]
 }
