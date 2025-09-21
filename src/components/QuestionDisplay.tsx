@@ -54,11 +54,12 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
             setSuggestions([]);
         } else {
             setSuggestions(
-                birds.filter(bird =>
-                    bird.fullName.toLowerCase().includes(value.toLowerCase())
-                )
+                birds.filter(bird => {
+                    const name = bird.fullName.toLowerCase();
+                    const words = value.toLowerCase().trim().split(/\s+/);
+                    return words.every(word => name.includes(word));
+                })
             );
-
             handleFocus();
         }
         setResult(null);
