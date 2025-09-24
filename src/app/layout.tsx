@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "../context/CentralDataContext";
+import Image from "next/image";
+import { CentralDataProvider } from "../context/CentralDataContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +33,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="w-full flex justify-center items-center mb-4">
+          <Image
+            src="/bird_id.svg"
+            alt="Bird Id"
+            width={400}
+            height={180}
+            priority
+          />
+        </header>
+        <CentralDataProvider>{children}</CentralDataProvider>
       </body>
     </html>
   );
