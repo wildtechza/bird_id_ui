@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "../context/CentralDataContext";
 import Image from "next/image";
+import { Suspense } from "react";
 import { CentralDataProvider } from "../context/CentralDataContext";
 
 const geistSans = Geist({
@@ -17,10 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Bird Id",
-  description: "Test your bird identification skills!",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" }
-  ]
+  description: "Test your bird identification skills!"
 };
 
 export default function RootLayout({
@@ -42,7 +40,11 @@ export default function RootLayout({
             priority
           />
         </header>
-        <CentralDataProvider>{children}</CentralDataProvider>
+        <CentralDataProvider>
+          <Suspense fallback={<div>Loading...</div>}>
+            {children}
+          </Suspense>
+        </CentralDataProvider>
       </body>
     </html>
   );

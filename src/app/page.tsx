@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useCentralData } from "../context/CentralDataContext";
 
 export default function Home() {
-  const { questions, birds } = useCentralData();
+  const { questions } = useCentralData();
 
   const options = [
     // { difficulty: "beginner", label: "Multiple Choice, how many questions", counts: [10, 20, 50] },
