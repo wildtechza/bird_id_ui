@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useCentralData } from "../context/CentralDataContext";
 
 export default function Home() {
@@ -13,6 +14,17 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center p-6 space-y-8">
+      <div className="flex flex-col items-center text-xl font-semibold mb-2">
+        <Image
+          className="mb-4"
+          src="/binoculars.svg"
+          alt="Bird Id"
+          width={100}
+          height={180}
+          priority
+        />
+        <span>{questions?.length} birds to identify!</span>
+      </div>
       <h1 className="text-2xl font-bold">Choose Your Quiz</h1>
       {options.map((opt) => (
         <div key={opt.difficulty} className="w-full max-w-sm">
