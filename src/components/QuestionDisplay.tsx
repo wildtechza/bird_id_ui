@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { Question } from "../models/Question";
 import { Bird } from "../models/Bird";
+import { MultipleChoice } from "./MultipleChoice";
 
 const CORRECT_MESSAGES = [
     "Eggcellent! 🥚",
@@ -30,9 +31,10 @@ const INCORRECT_MESSAGES = [
 export interface QuestionDisplayProps {
     question: Question;
     birds: Bird[];
+    difficulty: string;
 }
 
-export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
+export function QuestionDisplay({ question, birds, difficulty }: QuestionDisplayProps) {
     const [input, setInput] = useState("");
     const [suggestions, setSuggestions] = useState<Bird[]>([]);
     const [result, setResult] = useState<"correct" | "incorrect" | null>(null);
@@ -80,6 +82,13 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
         }
     }
 
+    function onMultipleChoiceChange(value: string | number) {
+        const selectedBird = birds.find(bird => String(bird.sabap2) === String(value));
+        if (selectedBird) {
+            handleSelect(selectedBird);
+        }
+    }
+
     const suggestionsRef = useRef<HTMLUListElement>(null);
 
     function handleFocus() {
@@ -115,30 +124,37 @@ export function QuestionDisplay({ question, birds }: QuestionDisplayProps) {
                 onLoad={() => setImageLoaded(true)}
             />
             <div className="mt-4 w-full relative" style={{ maxWidth: 400 }}>
-                <input
-                    type="text"
-                    value={input}
-                    onChange={handleChange}
-                    onFocus={handleFocus}
-                    placeholder="Type bird name..."
-                    className="w-full px-3 py-2 border rounded"
-                />
-                {suggestions.length > 0 && (
-                    <ul
-                        ref={suggestionsRef}
-                        className="w-full absolute left-0 border rounded shadow z-10 mt-1 max-h-40 overflow-y-auto 
-                        bg-white dark:bg-gray-800"
-                    >
-                        {suggestions.map(bird => (
-                            <li
-                                key={bird.fullName}
-                                className="px-3 py-2 cursor-pointer hover:bg-blue-100"
-                                onClick={() => handleSelect(bird)}
+                {difficulty == "beginner" && (
+                    <MultipleChoice birds={birds} currentQuestion={question} onMultipleChoiceChange={onMultipleChoiceChange}>
+                    </MultipleChoice>)}
+                {difficulty == "advanced" && (
+                    <>
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={handleChange}
+                            onFocus={handleFocus}
+                            placeholder="Type bird name..."
+                            className="w-full px-3 py-2 border rounded"
+                        />
+                        {suggestions.length > 0 && (
+                            <ul
+                                ref={suggestionsRef}
+                                className="w-full absolute left-0 border rounded shadow z-10 mt-1 max-h-40 overflow-y-auto 
+                            bg-white dark:bg-gray-800"
                             >
-                                {bird.fullName}
-                            </li>
-                        ))}
-                    </ul>
+                                {suggestions.map(bird => (
+                                    <li
+                                        key={bird.fullName}
+                                        className="px-3 py-2 cursor-pointer hover:bg-blue-100"
+                                        onClick={() => handleSelect(bird)}
+                                    >
+                                        {bird.fullName}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </>
                 )}
                 {result === "correct" && (
                     <div className="flex flex-col items-center mt-2 text-green-600 font-semibold">

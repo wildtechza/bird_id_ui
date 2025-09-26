@@ -12,7 +12,7 @@ export default function Quiz() {
     const router = useRouter();
     const { questions, birds } = useCentralData();
     const searchParams = useSearchParams();
-    //const difficulty = searchParams.get('difficulty');
+    const difficulty = searchParams.get('difficulty') ?? "beginner";
     const count = parseInt(searchParams.get('count') ?? "0", 10);
 
     const [questionsToAsk, setQuestionsToAsk] = useState<Question[]>([]);
@@ -67,7 +67,7 @@ export default function Quiz() {
             {allDataReady &&
                 <main className="flex flex-col gap-8 items-center">
                     <h1 className="text-2xl font-bold">{questionsToAsk.length + 1} Questions to go!</h1>
-                    <QuestionDisplay question={currentQuestion} birds={birds} />
+                    <QuestionDisplay question={currentQuestion} birds={birds} difficulty={difficulty} />
                     {showAnswer && (
                         <div className="mt-2 text-lg font-semibold text-blue-700">
                             Answer: {correctBird?.fullName || currentQuestion?.answer}

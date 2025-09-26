@@ -8,7 +8,7 @@ export default function Home() {
   const { questions } = useCentralData();
 
   const options = [
-    // { difficulty: "beginner", label: "Multiple Choice, how many questions", counts: [10, 20, 50] },
+    { difficulty: "beginner", label: "Multiple Choice, how many questions", counts: [10, 20, 50] },
     { difficulty: "advanced", label: "Type the answer, how many questions", counts: [10, 20, 50] },
   ];
 
