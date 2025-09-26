@@ -32,12 +32,23 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header className="w-full flex justify-center items-center mb-4">
+          {/* Light mode logo */}
           <Image
             src="/bird_id.svg"
             alt="Bird Id"
             width={400}
             height={180}
             priority
+            className="block dark:hidden"
+          />
+          {/* Dark mode logo */}
+          <Image
+            src="/bird_id_dark.svg"
+            alt="Bird Id (Dark)"
+            width={400}
+            height={180}
+            priority
+            className="hidden dark:block"
           />
         </header>
         <CentralDataProvider>
